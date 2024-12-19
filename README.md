@@ -43,7 +43,7 @@ To integrate the date and time display functionality into your Android applicati
   ```gradle
   
   dependencies {
-	        implementation ("com.github.Foysalofficial:BanglaDateUpdateAndroidLibrary:3.0")
+	        implementation ("com.github.Foysalofficial:BanglaDateUpdateAndroidLibrary:5.0")
 	}
   
   ```
@@ -54,17 +54,12 @@ To integrate the date and time display functionality into your Android applicati
         EnglishDateTv = findViewById(R.id.EnglishDateTv);
 
         BanglaDateUpdate banglaDateUpdate = new BanglaDateUpdate();
+        String getFullBanglaDate = banglaDateUpdate.now(new Locale("bn"));
 
-        String weekDay = banglaDateUpdate.getWeekDay();
-        String bangladay = banglaDateUpdate.getBanglaDays();
-        String BanglaMonth = banglaDateUpdate.getBanglaMonths();
-        String BanglaYear = banglaDateUpdate.getBanglaYears();
-        String banglaSeason = banglaDateUpdate.getBanglaSeason();
-        String englishDate = banglaDateUpdate.getEnglishDate();
-
-
-        BanglaDateTv.setText(banglaDateUpdate.getFullBanglaDate());
+        BanglaDateTv.setText(getFullBanglaDate);
         banglaDateUpdate.startUpdatingTime(BanglaTimeTv, false, true);
+
+        String englishDate = banglaDateUpdate.getEnglishDate();
         EnglishDateTv.setText(englishDate);
 
 
