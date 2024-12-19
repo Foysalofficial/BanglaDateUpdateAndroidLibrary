@@ -5,6 +5,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.bangladateupdate.bangladatebyfoysaltech.BanglaDateUpdate;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
 
     TextView BanglaTimeTv, BanglaDateTv, EnglishDateTv;
@@ -20,17 +22,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         BanglaDateUpdate banglaDateUpdate = new BanglaDateUpdate();
+        String getFullBanglaDate = banglaDateUpdate.now(new Locale("bn"));
 
-        String weekDay = banglaDateUpdate.getWeekDay();
-        String bangladay = banglaDateUpdate.getBanglaDays();
-        String BanglaMonth = banglaDateUpdate.getBanglaMonths();
-        String BanglaYear = banglaDateUpdate.getBanglaYears();
-        String banglaSeason = banglaDateUpdate.getBanglaSeason();
-        String englishDate = banglaDateUpdate.getEnglishDate();
-
-
-        BanglaDateTv.setText(banglaDateUpdate.getFullBanglaDate());
+        BanglaDateTv.setText(getFullBanglaDate);
         banglaDateUpdate.startUpdatingTime(BanglaTimeTv, false, true);
+
+        String englishDate = banglaDateUpdate.getEnglishDate();
         EnglishDateTv.setText(englishDate);
 
 
